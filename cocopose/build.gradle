@@ -1,7 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+ext {
+    PUBLISH_ARTIFACT_ID = "cocopose" //你的artifact_id，一般是module的名字
+    PUBLISH_VERSION = "0.0.1"  //发布版本号
+    PUBLISH_GROUP_ID = 'top.arakawa'  //你的sonatype的group_id
+}
+apply from: '../publish-mavencentral.gradle'
+
 android {
     namespace 'top.arakawa.cocopose'
     compileSdkVersion 32
@@ -56,3 +64,6 @@ dependencies {
 //    implementation 'androidx.compose.runtime:runtime-rxjava2'
 
 }
+//下面是发布流程
+group = "top.arakawa.cocopose"
+version = "0.0.1"
